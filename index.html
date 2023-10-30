@@ -1,65 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Survey Data Visualization</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- 引入Chart.js库 -->
+    <title>智杰心理</title>
     <style>
+        /* styles.css */
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
         }
-        #chart-container {
-            width: 50%;
-            margin: auto;
-            padding-top: 50px;
+
+        .top {
+            background-image: url('treat.jpeg'); /* 设置背景图 */
+            background-repeat: no-repeat; /* 防止背景图重复 */
+            background-size: cover; /* 使背景图覆盖整个视窗 */
+            color: white;
+            width: 99vw; /* 100% of viewport width */
+            height: 100vh; /* 100% of viewport height */
+            margin: 0;
+            padding: 0;
+            position: relative; /* or absolute, depending on your needs */
+        }
+
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+            padding-top: 10px;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            width: 21%;
+            margin: 20px 1%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .line {
+            width: 33%;
+        }
+
+        .top .zj p {
+            margin-top: -15px;
+        }
+
+
+        .chart-container div {
+            flex: 1;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+
+            padding: 20px;
+        }
+
+        h3 {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 新增样式 */
+        .intro {
+            width: 100%;
+            padding: 0;
+            background-color: rgba(255, 255, 255, 0);
+            /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+        }
+
+
+        .ohxl {
+            width: 300px;
+            height: 100px;
+            margin-left: 200px;
+            background-image: url("logo.png");
+            background-position: left center;
+            background-repeat: no-repeat;
+            background-size: auto 100%; /* This will keep the image aspect ratio and scale its height to the box */
+            padding-left: 120px; /* Pushes text content to the right side of the box. Adjust as necessary. */
+            display: flex;
+            /*align-items: center;*/
+            line-height: 100px;
+            font-size: 40px;
+            /*margin-left: 100px;*/
+            filter: invert(1);
+            color: black;
+            font-family: 华文彩云;
+        }
+
+        .intro p {
+            margin-left: 400px;
+            font-family: 幼圆;
+        }
+
+        .pro, .team {
+            width: 80%;
+            margin-left: 100px;
+            font-family: 楷体;
+            font-size: 20px;
+        }
+
+        .pro {
+            margin-top: 350px;
+        }
+
+
+        .pro p, .team p {
+            margin-left: 100px;
+            font-size: 16px;
+            text-indent: 2em;
+        }
+
+        .footer_father {
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            width: 100%;
+            padding: 0;
+            background-color: #222;
+            color: white;
+        }
+
+        .footer {
+            margin: 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: space-around;
+            width: 100%;
+            padding: 0;
+            background-color: #222;
+            color: white;
+        }
+
+        .footer_father .title {
+            font-size: 30px;
+            margin-left: 40px;
+            margin-top: 10px;
+            font-family: 楷体;
         }
     </style>
 </head>
-<body>
 
-<div id="chart-container">
-    <canvas id="myChart"></canvas>
+<body>
+<div class="top">
+    <!-- 项目介绍标题和简述 -->
+    <div class="intro zj">
+        <div class="ohxl">智杰心理</div>
+        <p>一个最了解你的智能情绪管家</p>
+    </div>
+
+    <!-- 关于项目的详细描述 -->
+    <div class="intro pro">
+        <h2>关于项目</h2>
+        <p>
+            随着现代生活节奏的加快，越来越多的人遭受心理和情绪压力，导致心理健康问题在全球范围内逐渐升温。许多人在应对日常生活压力、人际关系、工作和学业压力方面遭遇困难。在这个背景下，有效管理和调节个人情绪变得更加重要，同时也更加困难。能够在日常生活中即时提供支持和引导的工具成为了迫切的需求。目前，大部分人都缺乏足够的知识和技能来管理和调节他们的情绪，导致心理健康问题、人际关系冲突和工作效率降低等一系列问题。
+            <br>
+        </p>
+        <p>
+            我们的智能情绪管理应用旨在为用户提供一个方便、低成本且随时可用的工具，以帮助他们更有效地管理情绪，预防心理健康问题的发生，并促进个人和社会的整体福祉。通过运用先进的人工智能技术和心理学原理，我们的应用能够实时识别和理解用户的情绪状态，提供个性化的建议和策略来帮助用户管理和调节他们的情绪。
+    </div>
+
+
+    <div class="intro team">
+        <h2>团队介绍</h2>
+        <p>
+            我们是一个团结友爱的团队，我们共同追求创新和卓越，致力于通过技术和创意解决现代社会面临的心理健康挑战。我们的团队由一群具有多元背景和专业知识的成员组成，包括软件工程师、人工智能研究员、心理健康专家和用户体验设计师。我们的多学科团队结构不仅促进了知识和技能的交叉整合，也为创新思维和协作提供了丰富的土壤。
+
+
+            <br>
+        </p>
+        <p>
+            我们相信，通过集合每个成员的力量和专长，我们能够开发出能真正改变人们生活的产品和服务。我们团队主要成员（排名不分前后）：夏再禹、李浩、高强、杨绍清。
+        </p>
+    </div>
 </div>
 
+
+<!-- 页脚 -->
+<div class="footer_father">
+    <div class="title">用户调研数据可视化</div>
+    <div class="footer">
+
+        <div class="chart-container">
+            <h2>年龄分布</h2>
+            <canvas id="ageChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+            <h2>性别分布</h2>
+            <canvas id="genderChart"></canvas>
+        </div>
+
+
+        <div class="chart-container">
+            <h2>情绪困难分布</h2>
+            <canvas id="emotionChart"></canvas>
+        </div>
+
+        <div class="chart-container line">
+            <h2>职业分布</h2>
+            <canvas id="professionChart"></canvas>
+        </div>
+
+        <div class="chart-container line">
+            <h2>付费意愿分布</h2>
+            <canvas id="paymentChart"></canvas>
+        </div>
+        <p>智杰心理 &copy; 2023</p>
+    </div>
+</div>
+
+
+<script src="chart.js"></script>
 <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['18岁以下', '18-24岁', '25-34岁', '35-44岁', '45岁以上'],
-            datasets: [{
-                label: '年龄分布',
-                data: [12, 19, 3, 5, 2],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
+    // 数据摘自您提供的表格
+
+    let data = {
+        ageGroups: {
+            "18岁以下": 4,
+            "18-24岁": 9,
+            "25-34岁": 3,
+            "35-44岁": 2,
+            "45岁以上": 1
         },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+        genders: {
+            男: 13,
+            女: 6
+        },
+        professions: {
+            学生: 10,
+            自由职业者: 3,
+            全职员工: 1,
+            无业: 3
+        },
+        emotionDifficulties: {
+            是: 18,
+            否: 1
+        },
+        paymentWillingness: {
+            "免费": 8,
+            "10元以下/月": 7,
+            "10-50元/月": 4
+        }
+    };
+    // 首先要确保你在 HTML 里已经引入了 Chart.js
+    // 如果没有，请在 HTML 文件中的 <head> 标签中添加以下代码：
+    // <script src="https://cdn.jsdelivr.net/npm/chart.js">
+
+    document.addEventListener('DOMContentLoaded', function () {
+        let ctx1 = document.getElementById('ageChart').getContext('2d');
+        let ctx2 = document.getElementById('genderChart').getContext('2d');
+        let ctx3 = document.getElementById('professionChart').getContext('2d');
+        let ctx4 = document.getElementById('emotionChart').getContext('2d');
+        let ctx5 = document.getElementById('paymentChart').getContext('2d');
+
+// 年龄分布饼图
+        new Chart(ctx1, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(data.ageGroups),
+                datasets: [{
+                    data: Object.values(data.ageGroups),
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#A3E85C', '#ED7D3A']
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: '年龄分布'
+                }
+            },
+
+        });
+
+// 性别分布饼图
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(data.genders),
+                datasets: [{
+                    data: Object.values(data.genders),
+                    backgroundColor: ['#FF6384', '#36A2EB']
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: '性别分布'
                 }
             }
-        }
-    });
-</script>
+        });
 
+// 职业分布条形图
+        let professionLabels = Object.keys(data.professions);
+        let professionData = Object.values(data.professions);
+        let professionDatasets = [];
+
+        professionLabels.forEach((label, index) => {
+            let dataset = {
+                label: label,
+                data: Array(professionLabels.length).fill(0), // 创建一个全为0的数组
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#A3E85C'][index]
+            };
+            dataset.data[index] = professionData[index]; // 设置对应的值
+            professionDatasets.push(dataset);
+        });
+
+        new Chart(ctx3, {
+            type: 'bar',
+            data: {
+                labels: professionLabels,
+                datasets: professionDatasets
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: '职业分布'
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true, // 堆叠X轴
+                    }],
+                    yAxes: [{
+                        stacked: true, // 堆叠Y轴
+                    }]
+                }
+            }
+        });
+
+
+// 情绪困难分布饼图
+        new Chart(ctx4, {
+            type: 'pie',
+            data: {
+                labels: Object.keys(data.emotionDifficulties),
+                datasets: [{
+                    data: Object.values(data.emotionDifficulties),
+                    backgroundColor: ['#FF6384', '#36A2EB']
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: '情绪困难分布'
+                }
+            }
+        });
+
+// 付费意愿条形图
+        let paymentLabels = Object.keys(data.paymentWillingness);
+        let paymentData = Object.values(data.paymentWillingness);
+        let paymentDatasets = [];
+
+        paymentLabels.forEach((label, index) => {
+            let dataset = {
+                label: label,
+                data: Array(paymentLabels.length).fill(0), // 创建一个全为0的数组
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'][index]
+            };
+            dataset.data[index] = paymentData[index]; // 设置对应的值
+            paymentDatasets.push(dataset);
+        });
+
+        new Chart(ctx5, {
+            type: 'bar',
+            data: {
+                labels: paymentLabels,
+                datasets: paymentDatasets
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '付费意愿分布'
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
+                        ticks: {
+                            font: {
+                                size: 14,           // 字体大小
+                                family: 'Arial',    // 字体
+                                color: '#ffffff'       // 字体颜色
+                            }
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            font: {
+                                size: 14,           // 字体大小
+                                family: 'Arial',    // 字体
+                                color: '#ffffff'       // 字体颜色
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+    });
+
+</script>
 </body>
+
 </html>
