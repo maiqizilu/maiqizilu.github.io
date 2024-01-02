@@ -153,6 +153,35 @@
             margin-top: 10px;
             font-family: 楷体;
         }
+
+        /* h3 {
+            color: #333;
+        } */
+
+        h4 {
+            color: #555;
+        }
+
+        p {
+            color: #777;
+        }
+
+        .feedback-section {
+            margin-bottom: 40px;
+        }
+
+        .criticality-high {
+            color: #FF0000;
+        }
+
+        .criticality-medium {
+            color: #FFA500;
+        }
+
+        .solution-list {
+            margin-top: 10px;
+            margin-left: 20px;
+        }
     </style>
 </head>
 
@@ -190,6 +219,83 @@
     </div>
 </div>
 
+<div>
+    <div class="feedback-section">
+        <h3>用户体验类反馈：</h3>
+        <p><strong>问题总结：</strong>界面设计不够直观</p>
+        <p><strong>用户反馈1：</strong>首页的图标和标签过多，让人感到混乱，建议减少并优化常用功能的排列，以提高使用效率。</p>
+        <p><strong>用户反馈2：</strong>某些设置项的位置比较隐蔽，导致用户很难找到，建议在界面上增加更多的指引和提示。</p>
+        <p class="criticality-medium"><strong>Criticality:</strong> 中等</p>
+        <p><strong>期望改进：</strong>通过简化和优化界面设计，预计用户将更轻松地找到所需功能，提高应用的整体易用性，减少用户学习曲线。</p>
+        <div class="solution-list">
+            <ol>
+                <li>简化首页图标和标签，只保留核心功能，确保用户能够快速找到所需的功能。</li>
+                <li>提供更清晰的设置入口，加入引导教程或提示，帮助用户更轻松地了解和使用应用。</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="feedback-section">
+        <h3>功能可用性类反馈：</h3>
+        <p><strong>问题总结：</strong>情绪识别准确性有待提高</p>
+        <p><strong>用户反馈1：</strong>有时应用会误判用户的情绪，例如将愉快的表情误识别为焦虑。这给用户带来了困扰，需要提高情绪识别的准确性。</p>
+        <p><strong>用户反馈2：</strong>应用在面对复杂情感表达时可能无法很好地分辨，这使得一些用户感到应用对于个体差异的适应性不足。</p>
+        <p class="criticality-high"><strong>Criticality:</strong> 高</p>
+        <p><strong>期望改进：</strong>提高情绪识别的准确性将使用户在使用应用时更信任其反馈。预计这将导致用户更有效地管理情绪，并更愿意依赖应用作为情感支持工具。</p>
+        <div class="solution-list">
+            <ol>
+                <li>加强情绪识别算法，特别是在处理复杂情感表达和个体差异时进行优化，提高准确性。</li>
+                <li>引入用户反馈机制，允许用户主动纠正识别结果，以不断优化系统的学习和适应性。</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="feedback-section">
+        <h3>个性化服务类反馈：</h3>
+        <p><strong>问题总结：</strong>个性化建议不够精准</p>
+        <p><strong>用户反馈1：</strong>应用的个性化建议有时候感觉过于通用，缺少对个人情境的深刻理解，建议提升定制性。</p>
+        <p><strong>用户反馈2：</strong>在提供建议时，应用似乎过于依赖基础信息，而忽略了用户可能在特定时刻的特殊需求，建议更多关注用户当下的情绪状态。</p>
+        <p class="criticality-medium"><strong>Criticality:</strong> 中等</p>
+        <p><strong>期望改进：</strong>通过提供更加个性化和针对性的建议，预计用户将更容易接受并实际应用这些建议，从而提高应用在情感管理方面的实际效果。</p>
+        <div class="solution-list">
+            <ol>
+                <li>加强用户情境分析，通过更深入的学习和了解用户行为，提供更精准、个性化的建议。</li>
+                <li>增加用户反馈渠道，让用户可以主动反馈对建议的满意度和实际效果，用于优化个性化服务。</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="feedback-section">
+        <h3>隐私保护类反馈：</h3>
+        <p><strong>问题总结：</strong>用户隐私担忧</p>
+        <p><strong>用户反馈1：</strong>担心应用会过于依赖个人情感数据，对于这方面的使用目的和安全性没有足够的信心，建议增加隐私政策的透明度。</p>
+        <p><strong>用户反馈2：</strong>缺少用户对于数据删除和管理的控制权，建议提供更灵活的隐私设置选项。</p>
+        <p class="criticality-high"><strong>Criticality:</strong> 高</p>
+        <p><strong>期望改进：</strong>通过加强隐私保护措施和提供更灵活的隐私设置，预计用户对应用的隐私政策和安全性将更有信心，增加他们的使用意愿。</p>
+        <div class="solution-list">
+            <ol>
+                <li>明确的隐私政策说明，清晰地解释应用采集和使用情感数据的目的，增强用户对隐私安全的信心。</li>
+                <li>提供更灵活的隐私设置选项，允许用户更细致地控制他们的个人数据。</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="feedback-section">
+        <h3>效果验证类反馈：</h3>
+        <p><strong>问题总结：</strong>应用效果缺乏验证</p>
+        <p><strong>用户反馈1：</strong>希望应用能提供更多的科学研究或专家证明，以加强用户对于应用有效性的信任。</p>
+        <p><strong>用户反馈2：</strong>缺少用户案例分享，让人难以相信应用真的可以有效地帮助解决情绪问题，建议增加用户成功故事的宣传。</p>
+        <p class="criticality-medium"><strong>Criticality:</strong> 中等</p>
+        <p><strong>期望改进：</strong>通过展示科学研究、专家证明和真实用户案例，预计用户将更有信心应用在情感管理方面的有效性，从而提高其在用户心目中的可信度。</p>
+        <div class="solution-list">
+            <ol>
+                <li>在应用中嵌入科学研究和专家证明，向用户展示应用背后的科学依据和验证。</li>
+                <li>推出用户案例分享板块，让用户分享他们在应用帮助下的真实体验，以建立更强有力的信任度。</li>
+            </ol>
+        </div>
+    </div>
+
+</div>
 
 <!-- 页脚 -->
 <div class="footer_father">
